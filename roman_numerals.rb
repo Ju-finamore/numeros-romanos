@@ -15,3 +15,15 @@ def old_roman_numeral(an_integer)
   end
   return roman
 end
+
+def new_roman_numeral(an_integer)
+  roman = ""
+  NEW_DIVIDERS.each_with_index do |divider, index|
+    t = an_integer / divider
+    t.times do
+      roman.insert(-1, NEW_ROMAN[index])
+    end
+  an_integer = an_integer % divider
+  end
+  return roman
+end
