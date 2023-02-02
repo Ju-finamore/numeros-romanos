@@ -3,3 +3,15 @@ OLD_ROMAN = ["M", "D", "C", "L", "X", "V","I"]
 
 NEW_DIVIDERS = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
 NEW_ROMAN = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+
+def old_roman_numeral(an_integer)
+  roman = ""
+  OLD_DIVIDERS.each_with_index do |divider, index|
+    t = an_integer / divider
+    t.times do
+      roman.insert(-1, OLD_ROMAN[index])
+    end
+    an_integer = an_integer % divider
+  end
+  return roman
+end
